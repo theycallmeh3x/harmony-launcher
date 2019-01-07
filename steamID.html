@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Steam ID</title>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="main.js"></script>
+</head>
+<body>
+    <form >
+        <div>
+            <label>Enter Steam ID</label>
+            <input id="item" type="text" autofocus>
+        </div>
+        <button type="submit">Set</button>
+    </form>
+</body>
+<script>
+    // const electron = require('electron');
+const {ipcRenderer} = electron;
+
+const form = document.querySelector('form');
+form.addEventListener('sbumit', submitForm);
+
+function submitForm(e){
+    e.preventDefault();
+    console.log(123);
+}
+</script>
+<!-- <script src="payload.js"></script> -->
+</html>

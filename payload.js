@@ -1,10 +1,13 @@
-// const electron = require('electron');
+const electron = require('electron');
 const {ipcRenderer} = electron;
 
 const form = document.querySelector('form');
-form.addEventListener('sbumit', submitForm);
+form.addEventListener('submit', submitForm);
 
 function submitForm(e){
     e.preventDefault();
-    console.log(123);
+    console.log('Form Submitted');
+    const item = document.querySelector('#item').value;
+    ipcRenderer.send('steamID:set', item);
+
 }

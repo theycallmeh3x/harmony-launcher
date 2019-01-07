@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain} = require('electron')
 const url = require('url');
 const path = require('path');
 
@@ -46,6 +46,13 @@ function createAddWindow(){
       addWindow = null;
     });
 }
+
+//Catch steamID:set
+ipcMain.on('steamID:set', function(e, item){
+  console.log(item);
+  mainWindow.webContents.send('steamID:set', item);
+  addWindow.close();
+});
 
 // Create menu template
 const mmTemplate = [
